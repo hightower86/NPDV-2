@@ -2,9 +2,9 @@
 # Сгенерим случайное число от 0 до 10 тем же методом  rand
 
 def show_rolling_die
-  100.times
-  sleep 0.1
-  print rand(6) \r
+  100.times do
+    sleep 0.01
+    print "#{rand(1..7)} \r"
   end
 end
 
