@@ -6,7 +6,7 @@ class Game
   def initialize(word)
     @letters = get_letters(word)
 
-    @errors = []
+    @errors = 0
     @good_letters = []
     @bad_letters = []
 
@@ -28,24 +28,24 @@ class Game
   end
 
   # Method next_step must to check
-  def next_step(letter)
-    if status == -1 || status == 1
+  def next_step(lettr)
+    if @status == -1 || @status == 1
       return
     end
 
-    if @good_letters.include?(letter) || @bad_letters.include?(letter)
+    if @good_letters.include?(lettr) || @bad_letters.include?(lettr)
       return
     end
 
-    if @letters.include?(letter)
+    if @letters.include?(lettr)
 
-      @good_letters << letter 
+      @good_letters << lettr 
       
       if @good_letters.size == @letters.uniq.size
-        status = 1
+        @status = 1
       end   
     else 
-      @bad_letters << letter
+      @bad_letters << lettr
 
       @errors += 1
 
@@ -61,6 +61,4 @@ class Game
     end
     return word.split("")
   end
-  
-  
 end
